@@ -1,0 +1,13 @@
+# VMWare Full Screen Making
+
+$ sudo apt-get update
+$ sudo apt-get install open-vm-tools-desktop
+
+$ sudo nano /etc/systemd/system/multi-user.target.wants/open-vm-tools.service
+ 
+# Add following lines to the end of the [Unit] section
+1. Requires=graphical.target
+2. After=graphical.target
+
+$ sudo systemctl daemon-reload
+$ sudo service open-vm-tools restart
